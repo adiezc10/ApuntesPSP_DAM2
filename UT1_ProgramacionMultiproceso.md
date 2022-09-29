@@ -36,7 +36,7 @@
 
 ## 0. Introducción
 
-Los ordenadores realizan muchas tareas simultáneamente aunque tengan pocos procesadores. En realidad estass tareas no se realizan simultáneamente, se ejecutan una tras otra a velocidades muy altas, sin que podamos apreciarlo.
+Los ordenadores realizan muchas tareas simultáneamente aunque tengan pocos procesadores. En realidad estas tareas no se realizan simultáneamente, se ejecutan una tras otra a velocidades muy altas, sin que podamos apreciarlo.
 
 Hay procesos que realmente son simultáneos, gracias a los procesadores con varios núcleos. Cada núcleo puede ejecutar una instrucción en cada momento, por lo que se podrán ejecutar simultáneamente tantas instrucciones como núcleos tenga el procesador.
 
@@ -180,7 +180,7 @@ Llamamos **contexto** de un proceso a la información que determina el estado de
 
 La gestión de los procesos recae sobre el sistema operativo.
 
-Conocemos como **demonio** a un proceso no interactivo que está ejecutándose continuamente en segundo plano. Suele proporcionar un servicio básico para el resto de procesos.
+Conocemos como **demonio** a un proceso no interactivo que está ejecutándose continuamente en segundo plano. Suele proporcionar un servicio básico para el resto de procesos. El nombre demonio proviene de **deamon**, que a su vez proviene de las siglas inglesas DAEMON ( Disk And Execution Monitor).
 
 ### 2.1 Estados de los procesos
 
@@ -371,7 +371,7 @@ for (int i=0;i<10;i++){
 La clase ProcessBuilder dispone de más métodos importantes para la gestión de procesos:
 | Método            | Función       | 
 | ---               | ---           | 
-| strat             | Inicia un nuevo proceso       | 
+| start             | Inicia un nuevo proceso       | 
 | command           | Permite obtener y asignar el programa y los argumentos de la instancia de ProcessBuilder |
 | directory         | Asigna u obtiene un directorio de trabajo |
 | environment       | Da info sobre el entorno de ejecución |
