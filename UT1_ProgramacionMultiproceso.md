@@ -404,14 +404,14 @@ import java.io.*;
 ```
 ## 5. Comunicación entre procesos
 Cada proceso
-- Entrada estándar (stdin): lugar donde el proceso lee los datos de entrada que requiere para su ejecución. `System.in`
-- Salida estándar (stdout): sitio donde el proceso escribe los resultados que obtiene. `System.out`
-- Salida de error (stderr): sitio donde el proceso envía los mensajes de error. `System.err`
+- **Entrada estándar** (stdin): lugar donde el proceso lee los datos de entrada que requiere para su ejecución. `System.in`
+- **Salida estándar** (stdout): sitio donde el proceso escribe los resultados que obtiene. `System.out`
+- **Salida de error** (stderr): sitio donde el proceso envía los mensajes de error. `System.err`
 
 Cuando se ejecuta un proceso hijo invocado desde un proceso padre, el hijo no puede utilizar su entrada o salida estándar. Por ello tenemos que redirigir su entrada, salida y flujo de error a los del padre para obtener dicha información.
 
-- `OutputStream`: flujo de salida del proceso hijo. El stream está conectado a la **entrada estándar** (stdin) del proceso hijo.
-- `InputStream`: flujo de entrada del proceso hijo. El stream está conectado a la salida estándar (stdout) del proceso hijo.
+- `OutputStream`: flujo de salida del proceso hijo. Describe la salida del flujo y se utiliza para escribir datos en un archivo, imagen, audio, etc. Por lo tanto, OutputStream escribe datos en el destino de uno en uno.
+- `InputStream`: flujo de entrada del proceso hijo. Describe la entrada de flujo y se usa para leer datos de la fuente de uno en uno.
 - `ErrorStream`: flujo de error del proceso hijo. El stream está conectado a la salida estándar (stderr) del proceso hijo. Sin embargo, hay que saber que en java stderr y stdout están conectados al mismo sitio.
   - Utilizamos `redirectErrorStream(boolean)` de la clase ProcessBuilder para separarlos.
 
