@@ -110,30 +110,37 @@ Normalmente trabajaremos utilizando directamente la clase Thread. Runnable se ut
 
 ![](img/estadosHilo.png)
 
-## 2. Programación multihilo: clases y librerías
+### Sleep
+> Ejemplo 4
+### Join
+> Ejemplo 5
 
-### 2.1 Paquete _java.lang_
+## 2. Sincronización de hilos
+Todos los hilos de un programa pertenecen a un mismo proceso, por lo que comparten variables y objetos en memoria. Si varios hilos manipulan objetos comunes, puede llevar a resultados erróneos. Para solucionar esto es necesario sincronizar. 
 
-### 2.2 Paquete _java.util.concurrent_
+Existen varios mecanismos de sincronización:
+- Región crítica
+- Monitores
+- Semáfotos
 
-#### Executor
+### 2.1 Región crítica
+La región critica de un programa multihilo es el bloque de código que accede a recursos compartidos, por lo que limitaremos el acceso a esta sección a un único hilo en ejecución.
 
-#### Queues
+Es importante determinar correctamente la sección crítica para evitar errores de concurrencia. Además es importante hacerlo eficientemente para aprovechar el paralelismo.
 
-#### Sincronizadores
+> __Ejemplo 6a__: programa que crea cuatro hilos que acceden a una variable contador. Cada uno de los hilos aumenta el contador en una unidad. No usa herramientas de sincronización. ¿Funciona correctamente?
 
-#### Estructuras concurrentes
+Para sincronizar un proceso se utiliza la palabra reservada __Synchronized__.
+La región crítica (la zona a proteger) se puede crear en el método o en el objeto.
 
-## 3 Programación asíncrona
+> __Ejemplo 6b__: Modificamos el ejemplo anterior y sincronizamos el método protegiendo la región crítica mediante la palabra clave Syncronized.
 
-### 3.1 Interfaz _Runnable_
+> __Ejemplo 6c__: Ahora sincronizamos un fragmento de código especificando cual es el objeto que queremos que sea la región crítica.
 
-### 3.2 Clase _Thread_
+- Si tenemos que sincronizar un solo método que comparten varios hilos, se usa la sincronización del método.
+- Si tenemos que sincronizar distintas operaciones sobre un mismo objeto, hay que usar la sincronización del objeto.
 
-### 3.3 _sleep_
 
-### 3.4 Interrupciones
 
-### 3.5 Compartir información
 
-## 4 Sincronización de hilos.
+
