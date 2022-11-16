@@ -1,5 +1,21 @@
 # UT2 - Programación multihilo
 
+- [UT2 - Programación multihilo](#ut2---programación-multihilo)
+  - [Objetivos](#objetivos)
+  - [0. Introducción](#0-introducción)
+    - [Multitarea basada en procesos](#multitarea-basada-en-procesos)
+    - [Multitarea basada en hilos](#multitarea-basada-en-hilos)
+    - [Hilos](#hilos)
+  - [1. Fundamentos de la programación multihilo](#1-fundamentos-de-la-programación-multihilo)
+    - [1.1 Programación secuencial (un hilo)](#11-programación-secuencial-un-hilo)
+    - [1.2 Programación concurrente (multihilo)](#12-programación-concurrente-multihilo)
+    - [1.3 Estados de los hilos](#13-estados-de-los-hilos)
+    - [Sleep](#sleep)
+    - [Join](#join)
+  - [2. Sincronización de hilos](#2-sincronización-de-hilos)
+    - [2.1 Región crítica](#21-región-crítica)
+    - [2.2 Monitores (productor-consumidor)](#22-monitores-productor-consumidor)
+
 ## Objetivos
 
 - Conceptos de hilo y asincronía y su utilidad en programación.
@@ -137,10 +153,44 @@ La región crítica (la zona a proteger) se puede crear en el método o en el ob
 
 > __Ejemplo 6c__: Ahora sincronizamos un fragmento de código especificando cual es el objeto que queremos que sea la región crítica.
 
-- Si tenemos que sincronizar un solo método que comparten varios hilos, se usa la sincronización del método.
-- Si tenemos que sincronizar distintas operaciones sobre un mismo objeto, hay que usar la sincronización del objeto.
+### 2.2 Monitores (productor-consumidor)
 
+Es un método de sincronización que podemos utilizar cuando uno o más hilos producen datos y otros hilos consumen dichos datos. Si los hilos que producen los datos van a diferente velocidad que los que consumen, puede que se salten datos.
 
+En estos ejercicios tendremos un clase común  donde se harán las operaciones de producir y consumir.
+- Se definirá una clase hilo que ejecuta la operación de producir
+- Se definirá una clase hilo que ejecuta la operación de consumir.
 
+El objeto que controla los hilos que acceden a ese objeto mediante  estos mecanismos se llama __monitor__.
+
+Utilizaremos la sinstrucciones wait(), notify() y notifyAll() para limitar el acceso a un objeto cuando no se den las condiciones de seguir ejecutándose, y permitir su ejecución cuando las condiciones se cumplan.
+
+Vamos a ver un ejemplo de problema productor-consumidor que sigue el siguiente esquema:
+
+![](img/monitores.png)
+
+En estos ejercicios vamos a tener uno o varios hilos productores, encargados de llenar un recipiente. El productor llenará el recipiente siempre que este vacio. Si está lleno, debe bloquearse. El productor saldrá del estado de bloqueo cuando se le notifique que el recipiente está vacio.
+
+SI recipiente_lleno ENTONCES
+    Esperar_vaciar_recipiente
+EN OTRO CASO
+    Llenar_recipiente
+Notificar_llenado_Recipiente
+
+El consumidor vaciará el recipiente si está lleno. Si no está lleno, se bloqueará a la espera de que se le notifique que se ha llenado. Una vez vacio el recipiente, debe notificar a los hilos que estaban esperando para llenar el recipiente, que este ha sido vaciado.
+
+SI recipiente_vacio ENTONCES
+    Esperar_llenar_recipiente
+EN OTRO CASO
+    Vaciar_recipiente
+Notificar_vaciado_Recipiente
+
+El acceso al objeto compartido, recipiente, ha de hacerse de forma sincronizada, usando regiones críticas.
+
+![](img/EstadosMonitor.png)
+
+Cuando un hilo invoca a wait(), queda bloqueado a la espera de un evento. Puede ser la invocación de notify, notifyAll, superar el tiempo especificado en Wait o la interrupción del hilo.
+
+> Ejemplo ProductorConsumidor (8)
 
 
