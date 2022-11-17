@@ -174,20 +174,21 @@ Con este método podemos afrontar problemas en los que hay uno o varios hilos pr
 
 - Un hilo productor llenará el recipiente siempre que este vacio. Si está lleno, debe bloquearse. El productor saldrá del estado de bloqueo cuando se le notifique que el recipiente está vacio.
 
+```
 SI recipiente_lleno ENTONCES
     Esperar_vaciar_recipiente
 EN OTRO CASO
     Llenar_recipiente
 Notificar_llenado_Recipiente
-
+```
 - Un hilo consumidor vaciará el recipiente si está lleno. Si no está lleno, se bloqueará a la espera de que se le notifique que se ha llenado. Una vez vacio el recipiente, debe notificar a los hilos que estaban esperando para llenar el recipiente, que este ha sido vaciado.
-
+```
 SI recipiente_vacio ENTONCES
     Esperar_llenar_recipiente
 EN OTRO CASO
     Vaciar_recipiente
 Notificar_vaciado_Recipiente
-
+```
 El acceso al objeto compartido (recipiente) debe de hacerse de forma sincronizada usando regiones críticas.
 
 ![](img/EstadosMonitor.png)
