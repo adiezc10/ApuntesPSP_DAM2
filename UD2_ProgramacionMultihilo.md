@@ -199,4 +199,70 @@ Cuando un hilo invoca a wait(), queda bloqueado a la espera de un evento. Puede 
 
 ### 2.3 Semáforos
 
+Los semáforos se utilizan para controlar el acceso a un recurso.Se implementan con una cola de tareas o de condición a la cual se añaden los procesos que están en espera del recurso. 
 
+Sólo se permiten tres operaciones sobre un semáforo:
+- Inicializar: se proporciona un valor inicial al semáforo igual al número de recursos disponibles. Este valor determina el número de hilos que pueden acceder a la vez a una región protegida.
+
+  Si inicializamos a 1, solo 1 hilo de cada vez. Si inicializamos a otro valor, se permite más de un hilo a la vez.
+
+- Espera (wait o acquire): El hilo que ejecute esta instrucción disminuye en 1 el valor del semáforo. 
+
+  Si el valor es menor que 0, no hay permisos disponibles. Se queda bloqueado hasta que haya permisos disponibles.
+
+- Señal (signal o release): Cuando un proceso termina de ejecutar el recurso compartido, avisa de su liberación mediante un signal. 
+Después aumenta el valor del semáforo. Si hubiera hilos bloqueados para entrar, podrán pasar a ejecutarse.
+
+Métodos:
+- Void Semaphore(int valor): Inicializa el semáforo. Indica el valor inicial del semáforo antes de comenzar su ejecución.
+- Void adquire(): implementa la operación wait
+- Void release(): implementa la operación signal. Desbloquea un hilo que esté esperando con wait()
+
+Flujo de instrucciones de la sincronización con semáfotos:
+1. Indicar al constructor __Semaphore (int permisos)__ el total de permisos que se pueden dar para acceder al mismo tiempo al recurso compartido. Este valor coincide con el número de hilos que pueden acceder a la vez al recurso. 
+2. Indicar al semáforo mediante el método __acquire()__, que queremos acceder al recurso, o bien mediante __acquire(int permisosAdquirir)__ cuántos permisos se quieren consumir al mismo tiempo.
+3. Indicar al semáforo mediante el método __release()__, que libere el permiso, o bien mediante __release(int permisosLiberar)__, cuantos permisos se quieren liberar al mismo tiempo.
+
+También podemos utilizar otro constructor __Semaphore (int permisos, boolean justo)__ que mediante el parámetro justo permite garantizar que el primer hilo en invocar adquire() será el primero en adquirir un permiso cuando sea liberado. Esto garantiza el orden de adquisición de permisos, según el orden en que se solicitan.
+
+
+> Ejemplo 8 (sin semáfotos):
+
+Vamos a ver una aplicación fictica corriendo sin el uso de los semáforos, para luego entender mejor su utilidad: 
+
+Tenemos 4 procesos (p1, p2, p3, p4), cada proceso realiza su “tarea” simultaneamente (durante un tiempo indefinido) y posteriormente termina.
+
+Supongamos que necesitamos que se ejecuten primero los procesos P1 y P3, y luego P2 y P4.
+
+Los procesos se ejecutan sin cumplir la condición más importante: que se ejecuten primero los procesos P1 y P3, y posteriormente P2 y P4. 
+
+Solucionemos esto con el uso de semáforos
+Este ejercicio es un ejemplo de uso de semáforos para comunicar hilos.
+
+Aplicaciones de la clase Semaphore:
+1. Comunicar hilos (Establecer un orden de ejecución entre los distintos hilos)
+
+Vamos a usar la clase Semaphore, del paquete java.util.concurrent.
+Lo primero es el método acquire() de la clase Semaphore. Este método bloquea el semáforo permanentemente (wait).
+
+El método release() de la clase Semaphore, libera el semáforo para los demás procesos (signal).
+
+> Ejemplo 9.UsoSemaforos
+
+> Modifica el ejemplo 9 para que el orden de ejecución de los hilos sea siempre P1, P4, P2, P3. Utiliza tantos semáforos como creas necesarios.
+
+2. Protección de zonas críticas
+ 
+Se trata de simular el acceso simultáneo de 4 terminales a un Servidor, pero resuelto ahora con la clase Semaphore en vez de con synchronized. 
+
+> Ejemplo 10 Acceso Servidor
+
+3. Comunicar hilos según el número de permisos
+
+Es un ejemplo de Lectores-Escritores en una BD. Se inician 5 hilos lectores y 2 escritores. 
+
+La diferencia con los anteriores es que el semáforo permite hasta cinco accesos simultáneos a la base de datos. Los Escritores necesitan los 5 permisos para acceder, y los lectores solo 1 permiso para acceder.
+
+> Ejemplo 11 LectoresEscritores
+
+Hacer hoja de ejercicios
