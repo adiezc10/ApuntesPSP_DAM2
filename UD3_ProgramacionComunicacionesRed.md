@@ -64,7 +64,7 @@ Los protocolos con los que vamos a trabajar en esta unidad son los siguientes:
 |IP         | Capa de internet              |
 
 ### TCP
-Protocolo de control de transmisión (Transmission Control Protocol o TCP) es un protocolo de Internet ubicado en la capa de transporte. TCP garantiza la entrega de paquetes al distinatario de forma ordenada, completa y correcta. Se utiliza, por ejemplo, en la transferencia de archivos FTP, porque porque garantiza el envío de la información. Este protocolo se basa en conexciones, cuando establece una conexión entre dos nodos de la red se crea un canal por el que se envía la información.
+Protocolo de control de transmisión (Transmission Control Protocol o TCP) es un protocolo de Internet ubicado en la capa de transporte. TCP garantiza la entrega de paquetes al distinatario de forma ordenada, completa y correcta. Se utiliza, por ejemplo, en la transferencia de archivos FTP, porque porque garantiza el envío de la información. Este protocolo se basa en conexiones, cuando establece una conexión entre dos nodos de la red se crea un canal por el que se envía la información.
 
 ### UDP
 El protocolo de datagramas de usuario (User Datagram Protocol o UDP) es un protocolo del nivel de transporte basado en la transmisión sin conexión de datagramas y representa una alternativa al protocolo TCP. Permite el envío de datagramas de forma rápida en redes IP sin establecer previamente una conexión, dado que el propio datagrama incorpora la información sobre el destinatario.
@@ -177,7 +177,7 @@ Representa un socket para el envío y recepción de datagramas. Los métodos má
 | send          | Envía un datagrama a través del socket. |
 
 ## 3. Comunicación mediante sockets
-Los sockets son un mecanismo de comunicación de bajo nival. Permiten intercambiar información entre loe elementos de una red utilizando protocolos TCP y UDP. Para desarrollar aplicaciones basadas en sockets son necesarias varias clases del paquete java.net para la comunicación y de java.io para la lectura y escritura de bytes.
+Los sockets son un mecanismo de comunicación de bajo nivel. Permiten intercambiar información entre los elementos de una red utilizando protocolos TCP y UDP. Para desarrollar aplicaciones basadas en sockets son necesarias varias clases del paquete java.net para la comunicación y de java.io para la lectura y escritura de bytes.
 
 El desarrollo de aplicaciones con sockets es diferentes si se utiliza protocolo TCP o UDP.
 
