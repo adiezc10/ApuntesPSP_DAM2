@@ -14,7 +14,10 @@
     - [ServerSocket](#serversocket)
     - [Socket](#socket)
     - [DatagramPacket](#datagrampacket)
+    - [DatagramSocket](#datagramsocket)
   - [3. Comunicación mediante sockets](#3-comunicación-mediante-sockets)
+    - [Sistemas basados en sockets TCP](#sistemas-basados-en-sockets-tcp)
+    - [Sistemas basados en sockets UDP](#sistemas-basados-en-sockets-udp)
   - [4. Comunicación multihilo con sockets](#4-comunicación-multihilo-con-sockets)
 
 ## 1. Fundamentos de la programación de comunicaciones en res
@@ -156,6 +159,45 @@ Métodos más imporotantes de la clase socket:
 | isClosed      | Determina si el socket está cerrado. |
 | isConnected   | Determina si el socket está conectado. |
 
+### DatagramPacket
+Incluye constructores que permiten crear un array de bytes que determinen el contenido del paquete a enviar.
+
+### DatagramSocket
+Representa un socket para el envío y recepción de datagramas. Los métodos más importantes de esta clase son:
+| Método        | Descripción                   |
+| ----------    | ----------                    |
+| bind          | Asocia el socket a una dirección local. |
+| close         | Cierra el socket. |
+| connect       | Conecta el socket con el servicor. |
+| disconnect    | Desconecta el socket con el servicor. |
+| isBound       | Devuelve el estado de asociación del socket. |
+| isClosed      | Determina si el socket está cerrado. |
+| isConnected   | Determina si el socket está conectado. |
+| receive       | Recibe un datagrama del socket. |
+| send          | Envía un datagrama a través del socket. |
+
+## 3. Comunicación mediante sockets
+Los sockets son un mecanismo de comunicación de bajo nival. Permiten intercambiar información entre loe elementos de una red utilizando protocolos TCP y UDP. Para desarrollar aplicaciones basadas en sockets son necesarias varias clases del paquete java.net para la comunicación y de java.io para la lectura y escritura de bytes.
+
+El desarrollo de aplicaciones con sockets es diferentes si se utiliza protocolo TCP o UDP.
+
+### Sistemas basados en sockets TCP
+Para crear un servidor basado en sockets TCP hay que seguir los siguientes pasos:
+- Crear un socket servidor (server socket) asociado a una dirección y a un puerto concretos.
+- Poner al server socket a la espera de peticiones de conexión del cliente.
+- Aceptar la conexión.
+- Abrir flujos de lectura y escritura de datos.
+- Intercambiar datos con el cliente.
+- Cerrar flujos de lectura y escritura de datos.
+- Cerrar la conexión.
+
+Para crear un cliente basado en sockets TCP hay que seguir los siguientes pasos:
+- Crear un cliente de tipo socket (socket) indicando la dirección IP y el puerto del servidor.
+- Abrir los flujos de lectura y escritura de datos.
+- Intercambiar datos con el servidor.
+- Cerrar los flujos de lectura y escritura.
+- Cerrar conexión.
+
 > Ejemplo 2: Realiza un programa servidor TCP que acepte dos clientes. Muestra por cada cliente conectado sus puertos local y remoto.
 > 
 > Crea también el programa cliente que se conecte a ese servidor. Muestra los puertos locales y remotos a los que está conectado su socket, y la dirección IP de la máquina remota a la que se conecta.
@@ -164,10 +206,7 @@ Métodos más imporotantes de la clase socket:
 
 > Hoja de ejercicios 1
 
-### DatagramPacket
-
-## 3. Comunicación mediante sockets
-
+### Sistemas basados en sockets UDP
 
 ## 4. Comunicación multihilo con sockets
 
