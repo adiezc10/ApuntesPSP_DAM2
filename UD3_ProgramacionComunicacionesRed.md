@@ -1,7 +1,7 @@
 # UD3 - Programación de comunicaciones en red
 
 - [UD3 - Programación de comunicaciones en red](#ud3---programación-de-comunicaciones-en-red)
-  - [1. Fundamentos de la programación de comunicaciones en res](#1-fundamentos-de-la-programación-de-comunicaciones-en-res)
+  - [1. Fundamentos de la programación de comunicaciones en red](#1-fundamentos-de-la-programación-de-comunicaciones-en-red)
     - [Protocolos de comunicación](#protocolos-de-comunicación)
     - [TCP](#tcp)
     - [UDP](#udp)
@@ -20,7 +20,7 @@
     - [Sistemas basados en sockets UDP](#sistemas-basados-en-sockets-udp)
   - [4. Comunicación multihilo con sockets](#4-comunicación-multihilo-con-sockets)
 
-## 1. Fundamentos de la programación de comunicaciones en res
+## 1. Fundamentos de la programación de comunicaciones en red
 La mayoría de sistemas computacionales de la actualidad siguen el modelo de computación distribuida. Aplicaciones a través de Internet, móviles, etc.
 
 Un **sistema distribuido** está formado por más de un elemento computacional distinto e independiente (un procesador dentro de una máquina, un ordenador dentro de una red, etc) que no comparte memoria con el resto. 
@@ -48,11 +48,11 @@ Para comunicar las aplicaciones que forman un sistema distribuído son necesario
 
 ![](img/protocolos.png)
 
-- Nivel de red: Lo componen los elementos hardware de comunicaciones y sus controladores básicos. Se encarga de trasmitir los paquetes de información. 
-- Nivel de Internet: Lo componen los elementos software que se encargan de dirigir los paquetes por la red, asegurándose de que lleguen a su destino. También llamado nivel IP.
-- Nivel de transporte: Lo componen los elementos software cuya función es crear el canal de comunicación, descomponer el mensaje en paquetes y gestionar su transmisión entre el emisor y el receptor. 
+- **Nivel de red**: Lo componen los elementos hardware de comunicaciones y sus controladores básicos. Se encarga de trasmitir los paquetes de información. 
+- **Nivel de Internet**: Lo componen los elementos software que se encargan de dirigir los paquetes por la red, asegurándose de que lleguen a su destino. También llamado nivel IP.
+- **Nivel de transporte**: Lo componen los elementos software cuya función es crear el canal de comunicación, descomponer el mensaje en paquetes y gestionar su transmisión entre el emisor y el receptor. 
 Los dos protocolos de transporte fundamentales: TCP y UDP. 
-- Nivel de aplicación: Lo componen las aplicaciones que forman el sistema distribuido, que hacen uso de los niveles inferiores para poder transferir mensajes entre ellas.
+- **Nivel de aplicación**: Lo componen las aplicaciones que forman el sistema distribuido, que hacen uso de los niveles inferiores para poder transferir mensajes entre ellas.
 
 ![](img/FuncionamientoProtocolos.png)
 
@@ -95,7 +95,7 @@ Algunos de los puertos conocidos más importantes son:
 - 80, HTTP
 - 443, HTTPS
 
-Puedes consiltar la lista conocidos en el siguiente enlace: [https://es.wikipedia.org/wiki/Anexo:Puertos_de_red](https://es.wikipedia.org/wiki/Anexo:Puertos_de_red).
+Puedes consiltar la lista completa de puertos conocidos en el siguiente enlace: [https://es.wikipedia.org/wiki/Anexo:Puertos_de_red](https://es.wikipedia.org/wiki/Anexo:Puertos_de_red).
 
 Todas las aplicaciones que permiten trabajar en red necesitan utilizar uno o más puertos. Habitualmente tienen asociado un puerto por defecto. Por ejemplo, MySQL utiliza el puerto 3306, aunque normalmente el puerto al que se asocia un servicio se puede modificar.
 
