@@ -161,6 +161,16 @@ Métodos más imporotantes de la clase socket:
 
 ### DatagramPacket
 Incluye constructores que permiten crear un array de bytes que determinen el contenido del paquete a enviar.
+- DatagramPacket(byte[],int): Especifica la cadena de bytes donde se aloja el mensaje y la longitud del dicha cadena.
+- DatagramPacket(byte[], int,InetAddress, int): Especifica la cadena de bytes donde se aloja el mensaje, la longitud de la cadena, la dirección IP y el puerto al que se enviael mensaje.
+
+Métodos más importantes: 
+| Método        | Descripción                   |
+| ----------    | ----------                    |
+| getAddress()  | Devuelve la IP del host que envió el datagrama. |
+| getData()     | Devuelve el mensaje contenido en el datagrama. |
+| getLength()   | Devuelve la longitud de datos del datagrama. |
+| getPort()     | Devuelve el número de puerto del datagrama. |
 
 ### DatagramSocket
 Representa un socket para el envío y recepción de datagramas. Los métodos más importantes de esta clase son:
@@ -182,21 +192,13 @@ Los sockets son un mecanismo de comunicación de bajo nivel. Permiten intercambi
 El desarrollo de aplicaciones con sockets es diferentes si se utiliza protocolo TCP o UDP.
 
 ### Sistemas basados en sockets TCP
-Para crear un servidor basado en sockets TCP hay que seguir los siguientes pasos:
-- Crear un socket servidor (server socket) asociado a una dirección y a un puerto concretos.
-- Poner al server socket a la espera de peticiones de conexión del cliente.
-- Aceptar la conexión.
-- Abrir flujos de lectura y escritura de datos.
-- Intercambiar datos con el cliente.
-- Cerrar flujos de lectura y escritura de datos.
-- Cerrar la conexión.
 
-Para crear un cliente basado en sockets TCP hay que seguir los siguientes pasos:
-- Crear un cliente de tipo socket (socket) indicando la dirección IP y el puerto del servidor.
-- Abrir los flujos de lectura y escritura de datos.
-- Intercambiar datos con el servidor.
-- Cerrar los flujos de lectura y escritura.
-- Cerrar conexión.
+![](img/TCP.jpg)
+
+Opera en tres fases:
+1. Establecimiento de la conexión mediante un stream con la IP y la dirección del puerto.
+2. Envío de mensajes.
+3. Cierre de la conexión.
 
 > Ejemplo 2: Realiza un programa servidor TCP que acepte dos clientes. Muestra por cada cliente conectado sus puertos local y remoto.
 > 
@@ -204,9 +206,34 @@ Para crear un cliente basado en sockets TCP hay que seguir los siguientes pasos:
 
 > Ejemplo 3: Escribe un programa servidor que recibe un mensaje del cliente y lo muestra por pantalla. Después envía un mensaje al cliente y este lo muestra por pantalla.
 
-> Hoja de ejercicios 1
+> Hoja de ejercicios 1: sockets TCP
 
 ### Sistemas basados en sockets UDP
+Es un protocolo NO orientado a conexión. Esto lo hace más rápido que TCP, ya que no es necesario establecer conexiones, etc.
+- No garantiza que los mensajes lleguen siempre pero permite controlar los datos enviados en cada paquete.
+- No garantiza que los mensajes lleguen en el mismo orden que fueron enviados.
+- Permite enviar mensajes de 64 KB como máximo.
+- En UDP, los mensajes se denominan “datagramas” (datagramsen ingles).
+- Cuando se usan sockets datagram no existe diferencia entre proceso-servidor y proceso-cliente.
+
+![](img/UDP.jpg)
+
+Pasos para enviar mensajes:
+- Creación del socket.
+- Asignación de dirección y puerto (bind). Solo necesaria para poder recibir mensajes.
+- Envío y/o recepción de mensajes.
+- Cierre del socket.
+
+Cuando se envían datagramas el emisor debe indicar explícitamente la dirección IP y el puerto
+El datagrama tiene los siguientes campos:
+
+![](img/datagram.jpg)
+
+>  Ejemplo 4: Utilizando sockets UDP, programa un servidor que reciba un datagrama de un cliente, y muestre información: numero de bytes recibidos, contenido del paquete,ip y puerto de origen y de destino del paquete. El cliente envía un mensaje saludando y muestra la información del datagrama: longitud, host destino, ip de destino,puerto local y puerto de destino.
+
+> Ejemplo 5: Utilizando sockets UDP, donde el servidor reciba un string del cliente y devuelve el numero de letras "a" minúsculas que tiene dicho string. El cliente envía un datagrama con un string y muestra la respuesta del servidor.
+
+> Hoja de ejercicios 2: sockets UDP
 
 ## 4. Comunicación multihilo con sockets
 
