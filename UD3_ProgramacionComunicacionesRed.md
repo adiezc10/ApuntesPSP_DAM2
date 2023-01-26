@@ -19,6 +19,10 @@
     - [Sistemas basados en sockets TCP](#sistemas-basados-en-sockets-tcp)
     - [Sistemas basados en sockets UDP](#sistemas-basados-en-sockets-udp)
   - [4. Comunicación multihilo con sockets](#4-comunicación-multihilo-con-sockets)
+    - [MulticastSocket](#multicastsocket)
+    - [Envío de objetos a través de sockets TCP](#envío-de-objetos-a-través-de-sockets-tcp)
+    - [Envío de objetos a través de sockets UDP](#envío-de-objetos-a-través-de-sockets-udp)
+    - [Comunicación multihilo](#comunicación-multihilo)
 
 ## 1. Fundamentos de la programación de comunicaciones en red
 La mayoría de sistemas computacionales de la actualidad siguen el modelo de computación distribuida. Aplicaciones a través de Internet, móviles, etc.
@@ -213,7 +217,7 @@ Es un protocolo NO orientado a conexión. Esto lo hace más rápido que TCP, ya 
 - No garantiza que los mensajes lleguen siempre pero permite controlar los datos enviados en cada paquete.
 - No garantiza que los mensajes lleguen en el mismo orden que fueron enviados.
 - Permite enviar mensajes de 64 KB como máximo.
-- En UDP, los mensajes se denominan “datagramas” (datagramsen ingles).
+- En UDP, los mensajes se denominan “datagramas” (datagrams en ingles).
 - Cuando se usan sockets datagram no existe diferencia entre proceso-servidor y proceso-cliente.
 
 ![](img/UDP.jpg)
@@ -237,4 +241,41 @@ El datagrama tiene los siguientes campos:
 
 ## 4. Comunicación multihilo con sockets
 
+Se usan **Multicast Sockets** para enviar paquetes a múltiples destinos simultáneamente. Para ello se establece un grupo multicast, que es un grupo de direcciones IP con el mismo puerto. Al enviar el mensaje lo reciben todos los del grupo pero el emisor no sabe qué equipos del grupo lo gan recibido ni sus IP.
 
+### MulticastSocket
+La clase MulticastSocket se utiliza para enviar y recibir paquetes de multidifusión IP. Un MulticastSocket es un DatagramSocket (UDP), con capacidades adicionales para unirse a "grupos" de otros hosts de multidifusión en Internet.
+
+Un grupo de multidifusión se especifica mediante una dirección IP de clase D (direcciones de red de 32 bits) y un número de puerto UDP estándar. Las direcciones IP de Clase D están en el rango 224.0.0.0 a 239.255.255.255, inclusive. La dirección 224.0.0.0 está reservada y no debe utilizarse.
+
+Constructores:
+- MulticastSocket(): deja al sistema que elija un puerto de los libres
+- MulticastSocket(port): crea un socket multicast y lo conecta a el puerto local especificado.
+Métodos:
+- joinGroup(InetAddress): Une el socket a un grupo multicast
+- leaveGroup(InetAddress): abandona el grupo
+- send(DatagramPacket): envia un datagrama
+- receive(DatagramPacket): recibe un datagrama
+
+> Ejemplo 6: MulticastSocket
+
+### Envío de objetos a través de sockets TCP
+Se pueden intercambiar objetos entre un programa cliente y un programa servidor. Para ello utilizaremos las clases **ObjectInputStream** y **ObjectOutputStream**. Se usan los métodos **readObject** y **writeObject**.
+
+> Ejemplo 7: intercambio de objetos con sockets TCP
+
+### Envío de objetos a través de sockets UDP
+
+Se pueden intercambiar objetos entre un programa cliente y un programa servidor. Utilizaremos las clases **ByteArrayOutputStream** y **ByteArrayInputStream**. Para enviarlo tenemos que convertir el objeto en array de bytes.
+
+> Ejemplo 8: Ver ejemplo de intercambio de objetos con sockets UDP
+
+### Comunicación multihilo
+
+Para realizar comunicación multihilo mediante sockets necesitamos que los servidores sean capaces de atender a muchos clientes a la vez. 
+
+El esquema básico en sockets TCP es construir el servidor solo con la clase ServerSocket e invocar el accept. Con el socket que devuelve el accept se crea un hilo para atender a ese cliente.
+
+Normalmente los servidores multihilo se programan en un bucle infinito.
+
+> Ejemplo 9: servidor multihilo.
