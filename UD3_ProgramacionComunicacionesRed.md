@@ -246,6 +246,8 @@ Se usan **Multicast Sockets** para enviar paquetes a múltiples destinos simult�
 ### MulticastSocket
 La clase MulticastSocket se utiliza para enviar y recibir paquetes de multidifusión IP. Un MulticastSocket es un DatagramSocket (UDP), con capacidades adicionales para unirse a "grupos" de otros hosts de multidifusión en Internet.
 
+![](img/Mulsitcast.png)
+
 Un grupo de multidifusión se especifica mediante una dirección IP de clase D (direcciones de red de 32 bits) y un número de puerto UDP estándar. Las direcciones IP de Clase D están en el rango 224.0.0.0 a 239.255.255.255, inclusive. La dirección 224.0.0.0 está reservada y no debe utilizarse.
 
 Constructores:
