@@ -20,9 +20,9 @@
     - [Sistemas basados en sockets UDP](#sistemas-basados-en-sockets-udp)
   - [4. Comunicación multihilo con sockets](#4-comunicación-multihilo-con-sockets)
     - [MulticastSocket](#multicastsocket)
+    - [Comunicación multihilo](#comunicación-multihilo)
     - [Envío de objetos a través de sockets TCP](#envío-de-objetos-a-través-de-sockets-tcp)
     - [Envío de objetos a través de sockets UDP](#envío-de-objetos-a-través-de-sockets-udp)
-    - [Comunicación multihilo](#comunicación-multihilo)
 
 ## 1. Fundamentos de la programación de comunicaciones en red
 La mayoría de sistemas computacionales de la actualidad siguen el modelo de computación distribuida. Aplicaciones a través de Internet, móviles, etc.
@@ -250,6 +250,16 @@ La clase MulticastSocket se utiliza para enviar y recibir paquetes de multidifus
 
 Un grupo de multidifusión se especifica mediante una dirección IP de clase D (direcciones de red de 32 bits) y un número de puerto UDP estándar. Las direcciones IP de Clase D están en el rango 224.0.0.0 a 239.255.255.255, inclusive. La dirección 224.0.0.0 está reservada y no debe utilizarse.
 
+### Comunicación multihilo
+
+Para realizar comunicación multihilo mediante sockets necesitamos que los servidores sean capaces de atender a muchos clientes a la vez. 
+
+El esquema básico en sockets TCP es construir el servidor solo con la clase ServerSocket e invocar el accept. Con el socket que devuelve el accept se crea un hilo para atender a ese cliente.
+
+Normalmente los servidores multihilo se programan en un bucle infinito.
+
+> Ejemplo 9: servidor multihilo.
+
 ### Envío de objetos a través de sockets TCP
 Se pueden intercambiar objetos entre un programa cliente y un programa servidor. Para ello utilizaremos las clases **ObjectInputStream** y **ObjectOutputStream**. Se usan los métodos **readObject** y **writeObject**.
 
@@ -260,13 +270,3 @@ Se pueden intercambiar objetos entre un programa cliente y un programa servidor.
 Se pueden intercambiar objetos entre un programa cliente y un programa servidor. Utilizaremos las clases **ByteArrayOutputStream** y **ByteArrayInputStream**. Para enviarlo tenemos que convertir el objeto en array de bytes.
 
 > Ejemplo 8: Ver ejemplo de intercambio de objetos con sockets UDP
-
-### Comunicación multihilo
-
-Para realizar comunicación multihilo mediante sockets necesitamos que los servidores sean capaces de atender a muchos clientes a la vez. 
-
-El esquema básico en sockets TCP es construir el servidor solo con la clase ServerSocket e invocar el accept. Con el socket que devuelve el accept se crea un hilo para atender a ese cliente.
-
-Normalmente los servidores multihilo se programan en un bucle infinito.
-
-> Ejemplo 9: servidor multihilo.
