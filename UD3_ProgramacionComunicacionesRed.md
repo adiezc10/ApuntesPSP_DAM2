@@ -246,21 +246,9 @@ Se usan **Multicast Sockets** para enviar paquetes a múltiples destinos simult�
 ### MulticastSocket
 La clase MulticastSocket se utiliza para enviar y recibir paquetes de multidifusión IP. Un MulticastSocket es un DatagramSocket (UDP), con capacidades adicionales para unirse a "grupos" de otros hosts de multidifusión en Internet.
 
-![](img/Mulsitcast.png)
+![](img/Multicast.png)
 
 Un grupo de multidifusión se especifica mediante una dirección IP de clase D (direcciones de red de 32 bits) y un número de puerto UDP estándar. Las direcciones IP de Clase D están en el rango 224.0.0.0 a 239.255.255.255, inclusive. La dirección 224.0.0.0 está reservada y no debe utilizarse.
-
-Constructores:
-- MulticastSocket(): deja al sistema que elija un puerto de los libres
-- MulticastSocket(port): crea un socket multicast y lo conecta a el puerto local especificado.
-
-Métodos:
-- joinGroup(InetAddress): Une el socket a un grupo multicast
-- leaveGroup(InetAddress): abandona el grupo
-- send(DatagramPacket): envia un datagrama
-- receive(DatagramPacket): recibe un datagrama
-
-> Ejemplo 6: MulticastSocket
 
 ### Envío de objetos a través de sockets TCP
 Se pueden intercambiar objetos entre un programa cliente y un programa servidor. Para ello utilizaremos las clases **ObjectInputStream** y **ObjectOutputStream**. Se usan los métodos **readObject** y **writeObject**.
