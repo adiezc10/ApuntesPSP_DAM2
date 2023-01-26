@@ -251,6 +251,7 @@ Un grupo de multidifusión se especifica mediante una dirección IP de clase D (
 Constructores:
 - MulticastSocket(): deja al sistema que elija un puerto de los libres
 - MulticastSocket(port): crea un socket multicast y lo conecta a el puerto local especificado.
+
 Métodos:
 - joinGroup(InetAddress): Une el socket a un grupo multicast
 - leaveGroup(InetAddress): abandona el grupo
