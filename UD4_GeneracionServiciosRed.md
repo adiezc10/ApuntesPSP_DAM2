@@ -1,7 +1,7 @@
 # Generación de servicios en red
 
 - [Generación de servicios en red](#generación-de-servicios-en-red)
-  - [1. Protocolos estándar de comunicación en res a nivel aplicación](#1-protocolos-estándar-de-comunicación-en-res-a-nivel-aplicación)
+  - [1. Protocolos de comunicación en red a nivel aplicación](#1-protocolos-de-comunicación-en-red-a-nivel-aplicación)
   - [2. Clases y librerías para la creación de servicios en red](#2-clases-y-librerías-para-la-creación-de-servicios-en-red)
     - [URL y URLConnection](#url-y-urlconnection)
   - [3. Comunicación HTTP](#3-comunicación-http)
@@ -12,8 +12,9 @@
   - [6. Programación distribuída](#6-programación-distribuída)
 
 
-## 1. Protocolos estándar de comunicación en res a nivel aplicación
+## 1. Protocolos de comunicación en red a nivel aplicación
 Una __red informática__ es un sistema de comunicaciones que conecta ordenadores y otros equipos informáticos entre sí, con la finalidad de compartir información y recursos.
+
 Ventajas:
 - Reducción en el presupuesto para software y hardware.
 - Posibilidad de organizar grupos de trabajo.
@@ -74,13 +75,19 @@ El protocolo HTTPS utiliza por defecto el puerto 443.
 
 El Protocolo de transferencia de archivos (File Transfer Protocol) es un protocolo para la transferencia de archivos entre sistemas. Está basado en la arquitectura cliente-servidor y utiliza el protocolo TCP.
 
+Utiliza por defecto el puerto 21.
+
 - SMTP
 
 El protocolo para transferencia simple de correo (Simple Mail Transfer Protocol) es un protocolo de red utilizado para el intercambio de mensajes de correo electrónico. 
 
+Utiliza por defecto el puerto 25.
+
 - IMAP
 
 El protocolo de acceso a mensajes de Internet (Internet Message Access Protocol), es un protocolo de aplicación que permite el acceso a mensajes almacenados en un servidor de Internet. Mediante IMAP se puede tener acceso al correo electrónico desde cualquier equipo que tenga una conexión a Internet.
+
+Utiliza por defecto el puerto 143 para conexiones no cifradas y el 993 para conexiones cifradas.
 
 - POP3
 
@@ -92,33 +99,49 @@ Con el protocolo IMAP el usuario no descarga los correos electrónicos que recib
 
 Ambos sistemas tienen sus ventajas y desventajas. El IMAP no consume espacio del dispositivo ya que los correos se reciben y leen online, sin necesidad de descargarlos. No obstante, la gran ventaja que presenta POP3 es que el usuario puede descargar todos sus correos electrónicos en un dispositivo y leerlos posteriormente, sin necesidad de tener conexión a Internet.
 
+Utiliza por defecto el puerto 110 para conexiones no cifradas y el 995 para conexiones cifradas.
+
 - DNS
 
 El sistema de nombres de dominio (Domain Name System)​ es un sistema de nomenclatura jerárquico descentralizado para dispositivos conectados a redes IP. Permite vincular una URL o una dirección de correo a la IP donde se aloja el servicio.
+
+Utiliza por defecto el puerto 53.
 
 - TELNET
 
 Telnet (Teletype Network1​) es un protocolo que nos permite acceder a otra máquina para manejarla remotamente. No cifra la información.
 
+Utiliza por defecto el puerto 23.
+
 - SSH
 
 SSH (o Secure SHell, en español: intérprete de órdenes seguro) es un protocolo que permite acceder en remoto a un equipo desde una terminal. Es un protocolo en el que la información va cifrada.
+
+Utiliza por defecto el puerto 22.
 
 - LDAP
 
 El protocolo ligero de acceso a directorios (Lightweight Directory Access Protocol) es un protocolo a nivel de aplicación que permite el acceso a un servicio de directorio ordenado y distribuido para buscar diversa información en un entorno de red. Se suele utilizar prara almacenar la información de acceso a los sistemas (credenciales y permisos).
 
+Utiliza por defecto el puerto 389.
+
 - NFS
 
 El sistema de archivos en red (Network File System) permite enviar y consultar ficheros en una red desde cualquiera de sus nodos.
+
+Utiliza por defecto el puerto 2049.
 
 - SNMP
 
 El Protocolo simple de administración de red (Simple Network Management Protocol) es un protocolo de la capa de aplicación que facilita el intercambio de información de administración entre dispositivos de red. Los dispositivos que normalmente soportan SNMP incluyen routers, switches, servidores, estaciones de trabajo, impresoras, bastidores de módem y muchos más. Permite a los administradores supervisar el funcionamiento de la red, buscar y resolver sus problemas, y planear su crecimiento.
 
+Utiliza por defecto el puerto 161.
+
 - DHCP
 
 El protocolo de configuración dinámica de host (Dynamic Host Configuration Protocol) es un protocolo cliente/servidor​ mediante el cual un servidor DHCP asigna dinámicamente una dirección IP y otros parámetros de configuración de red a cada dispositivo en una red para que puedan comunicarse con otras redes IP.
+
+Utiliza por defecto el puerto 67.
 
 > Clasifica los protocolos anteriores en seguros y no seguros.
 
