@@ -120,6 +120,8 @@ El Protocolo simple de administración de red (Simple Network Management Protoco
 
 El protocolo de configuración dinámica de host (Dynamic Host Configuration Protocol) es un protocolo cliente/servidor​ mediante el cual un servidor DHCP asigna dinámicamente una dirección IP y otros parámetros de configuración de red a cada dispositivo en una red para que puedan comunicarse con otras redes IP.
 
+> Clasifica los protocolos anteriores en seguros y no seguros.
+
 ## 2. Clases y librerías para la creación de servicios en red
 
 Java se ha construido con extensas capacidades de interconexión TCP/IP y soporta diferentes niveles de conectividad en red, facilitando la creación de aplicaciones cliente/servidor y generación de servicios en red.
