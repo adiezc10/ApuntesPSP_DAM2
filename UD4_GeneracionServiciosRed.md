@@ -102,7 +102,7 @@ Telnet (Teletype Network1​) es un protocolo que nos permite acceder a otra má
 
 - SSH
 
-SSH (o Secure SHell, en español: intérprete de órdenes seguro) es un protocolo que permite acceder en remoto a un equipo desde una terminal. Es un protocolo seguro porque la información va cifrada.
+SSH (o Secure SHell, en español: intérprete de órdenes seguro) es un protocolo que permite acceder en remoto a un equipo desde una terminal. Es un protocolo en el que la información va cifrada.
 
 - LDAP
 
