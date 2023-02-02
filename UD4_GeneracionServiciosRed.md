@@ -3,7 +3,8 @@
 - [Generación de servicios en red](#generación-de-servicios-en-red)
   - [1. Protocolos de comunicación en red a nivel aplicación](#1-protocolos-de-comunicación-en-red-a-nivel-aplicación)
   - [2. Clases y librerías para la creación de servicios en red](#2-clases-y-librerías-para-la-creación-de-servicios-en-red)
-    - [URL y URLConnection](#url-y-urlconnection)
+    - [java.net.URL](#javaneturl)
+    - [java.net.URLConnection](#javaneturlconnection)
   - [3. Comunicación HTTP](#3-comunicación-http)
     - [3.1. Peticiones HTTP basadas en _HttpUrlConnection_](#31-peticiones-http-basadas-en-httpurlconnection)
     - [3.1. Peticiones HTTP basadas en _java.net.http_](#31-peticiones-http-basadas-en-javanethttp)
@@ -151,11 +152,11 @@ Java se ha construido con extensas capacidades de interconexión TCP/IP y soport
 
 El paquete principal que proporciona el API de Java para programar aplicaciones con comunicaciones en red es __java.net__, que soporta clases para generar diferentes servicios de red, servidores y clientes.
 
-### URL y URLConnection
-
 La programación de URL se produce a un nivel más alto que la programación de sockets y esto, puede facilitar la creación de aplicaciones que acceden a recursos de la red.
 
-Una URL, Localizador Uniforme de Recursos, representa una dirección a un recurso de la World Wide Web. Un recurso puede ser algo tan simple como un archivo o un directorio, o puede ser una referencia a un objeto más complicado, como una consulta a una base de datos, el resultado de la ejecución de un programa, etc.
+### java.net.URL
+
+Una URL, Localizador Uniforme de Recursos, representa una dirección a un recurso de la web. Un recurso puede ser algo tan simple como un archivo o un directorio, o puede ser una referencia a un objeto más complicado, como una consulta a una base de datos, el resultado de la ejecución de un programa, etc.
 
 La estructura de una URL se puede dividir en varias partes:
 
@@ -167,18 +168,35 @@ La estructura de una URL se puede dividir en varias partes:
 - Ruta. Es la ruta o path al recurso en el servidor.
 - Referencia. Es un fragmento que indica una parte específica dentro del recurso especificado.
 
-Construcciores de la clase URL:
-
-![](img/ClaseURL.png)
-
+la construcción de objetos de esta clase se realiza de la siguiente manera: 
+```Java
+URL url = new URL("https://www.google.com")
+```
 Pueden lanzar la excepción MalformedURLException si la URL está mal construida, no se hace ninguna verificación de que realmente exista la máquina o el recurso de red.
 
-Métodos de la clase URL:
+El método _openConnection_ es uno de los más importantes de la clase URL. Este método devuelve un objeto URLConnection que representa la conexión a un objeto remoto referenciado por la URL.
 
-![](img/MetodosURL.png)
+### java.net.URLConnection
 
-> Ejemplo 1: Crea un programa en el que se crea una URL para http://www.eldiariomontanes.es:80/index.html#descargas y analiza con los métodos vistos de URL. (1.-URLprueba)
+URLConnection es la superclase de todas las clases que representan un enlace de comunicación entre la aplicación y la URL. Las instancias de esta clase permiten leer y escribir en el recurso referenciado por la URL.
 
+Los métodos más importantes son:
+
+| Método                | Descripción                   |
+| ----------            | ----------                    |
+| getByName             | Proporciona la IP de un host desde su nombre. |
+| getLocalHost          | Proporciona la IP del localhost. |
+| getHostAddress        | Proporciona la IP del host. |
+| getHostName           | Proporciona el nombre del host. |
+| getAddress            | Proporciona la IP del host como un array de bytes. |
+| getCannonicalHostName | Proporciona el nombre del host. |
+| getInputStream        | Proporciona un stream de lectura. |
+| getOutputStream       | Proporciona un stream de escritura. |
+| setRequestProperty    | Asigna el valor de una propiedad. |
+
+> Ejemplo1: Crea un programa en el que se crea una URL para http://www.eldiariomontanes.es:80/index.html#descargas y analiza con los métodos vistos de URL.
+
+> Ejemplo2: Al programa le pasamos una dirección http y muestra por pantalla los campos de cabecera de la respuesta. Si el contenido de la url es de tipo texto o pdf, nos lo tendrá que descargar en un fichero en local
 
 
 ## 3. Comunicación HTTP
