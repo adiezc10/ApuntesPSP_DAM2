@@ -6,8 +6,6 @@
   - [Protocolos criptográficos.](#protocolos-criptográficos)
   - [Algoritmos criptográficos](#algoritmos-criptográficos)
     - [Algoritmos HASH o de resumen](#algoritmos-hash-o-de-resumen)
-    - [Algoritmos de clave privada](#algoritmos-de-clave-privada)
-    - [Algoritmos de clave pública](#algoritmos-de-clave-pública)
 
 ## Introducción a la criptografía
 Las aplicaciones informáticas permiten gestionar e intercambiar de forma automatizada una gran cantidad de información en formato digital. En ocasiones esta información pueden ser datos sensibles que deban tratarse de forma segura. Pueden ser desde datos bancarios u hospitalario hasta correos electrónicos personales de los que se quiera garantizar que no son falsos y que sólo usted los podrá leer. Por tanto, es importante poder garantizar seguridad en los datos que gestionan nuestras aplicaciones.
@@ -87,7 +85,3 @@ Los algoritmos HASH tienen que cumplir las siguientes características:
 - Ausencia de colisiones: son más robustos porque no existen con dos entradas distintas que generen el mismo resumen.
 
 > Prueba el funcionamiento de un algoritmo HASH utilizando una web de resumen de informacción. Resumir con SHA3(256) en https://herramientas-online.com/generador-hash-online.html, prueba a introducir tres mensajes de diferente longitud y comprueba la longitud del código criptográfico de la salida.
-
-### Algoritmos de clave privada
-
-### Algoritmos de clave pública
