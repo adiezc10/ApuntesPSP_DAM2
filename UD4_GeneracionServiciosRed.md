@@ -5,12 +5,12 @@
   - [2. Clases y librerías para la creación de servicios en red](#2-clases-y-librerías-para-la-creación-de-servicios-en-red)
     - [java.net.URL](#javaneturl)
     - [java.net.URLConnection](#javaneturlconnection)
-  - [3. Comunicación HTTP](#3-comunicación-http)
-    - [3.1. Peticiones HTTP basadas en _HttpUrlConnection_](#31-peticiones-http-basadas-en-httpurlconnection)
-    - [3.1. Peticiones HTTP basadas en _java.net.http_](#31-peticiones-http-basadas-en-javanethttp)
-  - [4. Transferencia de ficheros mediente HTTP](#4-transferencia-de-ficheros-mediente-http)
-  - [5. Envío y resepción de correos electrónicos](#5-envío-y-resepción-de-correos-electrónicos)
-  - [6. Programación distribuída](#6-programación-distribuída)
+    - [java.net.HttpURLConnection](#javanethttpurlconnection)
+    - [java.net.http.HttpClient](#javanethttphttpclient)
+    - [java.net.http.HttpRequest](#javanethttphttprequest)
+    - [java.net.http.HttpResponse](#javanethttphttpresponse)
+    - [FTPClient](#ftpclient)
+    - [JavaMail](#javamail)
 
 
 ## 1. Protocolos de comunicación en red a nivel aplicación
@@ -198,21 +198,49 @@ Los métodos más importantes son:
 
 > Ejemplo2: Al programa le pasamos una dirección http y muestra por pantalla los campos de cabecera de la respuesta. Si el contenido de la url es de tipo texto o pdf, nos lo tendrá que descargar en un fichero en local
 
+### java.net.HttpURLConnection
+Utilizaremos esta clase para gestionar una conexión HTTP.
 
-## 3. Comunicación HTTP
-Para generar servicios basados en HTTP hay que trabajar en dos enfoques, el de cliente y el de servidor. En esta asignatura vamos a ver el enfoque del cliente con el objetivo de desarrollar aplicacioes que realicen peticiones HTTP para obtener información.
+| Método                | Descripción                   |
+| ----------            | ----------                    |
+| disconnect            | Desconecta la conexión. |
+| getResponseCode       | Proporciona el código de retorno HTTP enviado por el servidor. |
+| setRequestMethod      | Proporciona el método de petición. |
 
-### 3.1. Peticiones HTTP basadas en _HttpUrlConnection_
+Contiene también las ocnstantes que representan los códigos de estado del protocolo HTTP, como, por ejemplo, HttpURLConnection.HTTP_OK que tiene el valor entero 200 y que significa que la petición se ha realizaco correctamente (OK).
+
+> Hoja de ejercicios 2 -> Peticiones HTTP basadas en _HttpUrlConnection_
+
+### java.net.http.HttpClient
+Esta clase permite realizar peticiones HTTP y obtener sus respuestas. Las instancias deben crearse a través de la instancia a un objeto o de un builder.
+
+Principales métodos de HttpClient:
+| Método                | Descripción                   |
+| ----------            | ----------                    |
+| newBuilder            | Crea un builder (objeto de la interfaz _HttpClient.Builder_). |
+| send                  | Envía una petición HTTP y devuelve una instancia de HttpResponse. Recibe como parámetro, además de la petición, un ubjeto de la clase HttpResponse.BodyHandles, encargado de gestionar el contenido de la respuesta de la petición. |
+
+Principales métodos de HttpClient.Builder:
+| Método                | Descripción                   |
+| ----------            | ----------                    |
+| build                 | Proporciona el objeto HttpClient con la configuración proporcionada. |
+| followsRedirect       | Proporciona mecanismos para determinar cómo debe comportarse la petición frente a las redirecciones del servidor. |
+| version               | Permite especificar la versión del protocolo HTTP. |
+
+### java.net.http.HttpRequest
+
+### java.net.http.HttpResponse
+
+> Hoja de ejercicios 3 -> Peticiones HTTP basadas en _java.net.http_
+
+### FTPClient
 
 
-### 3.1. Peticiones HTTP basadas en _java.net.http_
+> Hoja de ejercicio 4 -> Transferencia de ficheros mediente HTTP
 
-## 4. Transferencia de ficheros mediente HTTP
-
-
-## 5. Envío y resepción de correos electrónicos
+### JavaMail
 
 
-## 6. Programación distribuída
+> Hoja de jercicios 5 -> Envío y resepción de correos electrónicos
 
 
