@@ -7,7 +7,7 @@
     - [java.net.URLConnection](#javaneturlconnection)
     - [java.net.HttpURLConnection](#javanethttpurlconnection)
     - [java.net.http.HttpClient](#javanethttphttpclient)
-    - [java.net.http.HttpRequest](#javanethttphttprequest)
+  - [Transferencia de archivos mediante FTP](#transferencia-de-archivos-mediante-ftp)
     - [java.net.http.HttpResponse](#javanethttphttpresponse)
     - [FTPClient](#ftpclient)
     - [JavaMail](#javamail)
@@ -227,7 +227,33 @@ Principales métodos de HttpClient.Builder:
 | followsRedirect       | Proporciona mecanismos para determinar cómo debe comportarse la petición frente a las redirecciones del servidor. |
 | version               | Permite especificar la versión del protocolo HTTP. |
 
-### java.net.http.HttpRequest
+
+## Transferencia de archivos mediante FTP
+
+| Clase | Descripción |
+| ----------            | ----------                    |
+| FTP | Proporciona la funcionalidad necesaria para implementar un cliente FTP. |
+| FTPClient	| Esta es la clase principal que representa al cliente FTP. Permite conectarse a un servidor FTP, enviar y recibir archivos, y ejecutar comandos FTP. |
+| FTPFile	| Esta clase representa un archivo en un servidor FTP. Proporciona información sobre el archivo, como su nombre, tamaño y fecha de modificación. |
+| FTPFileFilter	| Esta interfaz define un filtro para los archivos que se reciben de un servidor FTP. Los objetos que implementan esta interfaz pueden usarse para filtrar archivos basados en su nombre, tamaño o cualquier otra propiedad. |
+| FTPReply	| Esta clase enumera todas las respuestas posibles que puede enviar un servidor FTP en respuesta a un comando FTP. Cada respuesta tiene un código numérico y una descripción textual. |
+| FTPConnectionClosedException	| Esta excepción se lanza cuando se intenta realizar una operación en un servidor FTP que ha cerrado la conexión. |
+
+La clase FTPClient de la biblioteca Apache Commons Net es una clase de utilidad que permite a los desarrolladores de Java interactuar con servidores FTP (Protocolo de transferencia de archivos).
+
+FTPClient proporciona una interfaz de programación de aplicaciones (API) que permite a los desarrolladores cargar y descargar archivos, navegar por el sistema de archivos del servidor FTP, renombrar y eliminar archivos, crear y eliminar directorios, y mucho más.
+
+| Método	| Descripción |
+| ----------            | ----------                    |
+| connect(String hostname)	| Conecta el cliente FTP al servidor especificado por su nombre de host. | 
+| login(String username, String password)	Inicia sesión en el servidor FTP con el nombre de usuario y contraseña especificados. |
+| logout() |	Cierra la sesión actual en el servidor FTP. |
+| changeWorkingDirectory(String pathname)	| Cambia el directorio de trabajo actual del servidor FTP al directorio especificado. |
+| storeFile(String remote, InputStream local) |	Carga un archivo en el servidor FTP desde un flujo de entrada de datos local. |
+| retrieveFile(String remote, OutputStream local)	| Descarga un archivo del servidor FTP a un flujo de salida de datos local. |
+| listFiles(String pathname) |	Devuelve un array de objetos FTPFile que representan los archivos en el directorio especificado. |
+| deleteFile(String pathname)	| Elimina el archivo especificado del servidor FTP. |
+| sendSiteCommand(String arguments)	| Envía un comando del sitio FTP al servidor FTP. |
 
 ### java.net.http.HttpResponse
 
