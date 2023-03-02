@@ -85,3 +85,16 @@ Los algoritmos HASH tienen que cumplir las siguientes características:
 - Ausencia de colisiones: son más robustos porque no existen con dos entradas distintas que generen el mismo resumen.
 
 > Prueba el funcionamiento de un algoritmo HASH utilizando una web de resumen de informacción. Resumir con SHA3(256) en https://herramientas-online.com/generador-hash-online.html, prueba a introducir tres mensajes de diferente longitud y comprueba la longitud del código criptográfico de la salida.
+
+**Los algoritmos HASH se utilizan pra a validar credenciales y para garantizar la integridad.**
+
+Los sistemas de validación de credenciales basados en algoritmos hash tienen el siguiente funcionamiento. Al registrarse en un sistema, el usuario introduce identificador y una contraseña. Mediante algoritmo HASH se genera un resumen de la contraseña y se almacena junto con el identificador. Ya tenemos un almacenamiento seguro, ya que al no ser un algoritmo reversible, si la contraseña resumida queda expuesta no será posible obtener la original.
+
+Posteriormente, para validar a un usuario, se aplicará el algoritmo HASH a la contraseña que se introduzca en el proceso de validación y se comprobará el resumen de esta con el almacenamiento anterior. Dado que estos algoritmos no tienen colisión, si los resúmenes coinciden significará que las contraseñas son idénticas. La ventaja de este sistema consiste en que en ningún momento la contraseña se almacenan y se recupera en claro, ya que siempre se trabaja con el resumen.
+
+Los algoritmos HASH más populares son los siguientes aunque existen muchos más:
+- MD5 (Meessage-Digest Algorithm 5): en la actualidad no se recomienda su uso por haberse detectado colisiones de HASH.
+- SHA-1 (Secure Hash Algorithms 1): en la actualidad no se recomienda su uso por haberse detectado colisiones de HASH.
+- SHA-2 (Secure Hash Algorithms 2): es una evolución del SHA1, un protocolo más seguro. Tiene muchas variantes, las más conocidas son SHA-256 y SHA-512, y las más seguras, porque no se han detectado colisiones en ellas, son SHA-512/224 y SHA-512/256. 
+- SHA-3 (Secure Hash Algorithms 3): aunque tenga un nombre similar, este algoritmo no es una evolución de SHA-1 ni del SHA-2, tiene un funcionamiento distinto. Tiene muchas variantes, las más conocidas son SHA-XXX y SHAKEXXX. 
+
