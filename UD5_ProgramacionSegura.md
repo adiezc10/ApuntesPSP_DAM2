@@ -90,7 +90,11 @@ Los algoritmos HASH tienen que cumplir las siguientes características:
 
 Los sistemas de validación de credenciales basados en algoritmos hash tienen el siguiente funcionamiento. Al registrarse en un sistema, el usuario introduce identificador y una contraseña. Mediante algoritmo HASH se genera un resumen de la contraseña y se almacena junto con el identificador. Ya tenemos un almacenamiento seguro, ya que al no ser un algoritmo reversible, si la contraseña resumida queda expuesta no será posible obtener la original.
 
+![](img/AlmacenamientoCredenciales.png)
+
 Posteriormente, para validar a un usuario, se aplicará el algoritmo HASH a la contraseña que se introduzca en el proceso de validación y se comprobará el resumen de esta con el almacenamiento anterior. Dado que estos algoritmos no tienen colisión, si los resúmenes coinciden significará que las contraseñas son idénticas. La ventaja de este sistema consiste en que en ningún momento la contraseña se almacenan y se recupera en claro, ya que siempre se trabaja con el resumen.
+
+![](img/ValidacionCredenciales.png)
 
 Los algoritmos HASH más populares son los siguientes aunque existen muchos más:
 - MD5 (Meessage-Digest Algorithm 5): en la actualidad no se recomienda su uso por haberse detectado colisiones de HASH.
