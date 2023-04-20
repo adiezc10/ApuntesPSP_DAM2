@@ -61,6 +61,7 @@ Los dos protocolos de transporte fundamentales: TCP y UDP.
 ![](img/FuncionamientoProtocolos.png)
 
 Los protocolos con los que vamos a trabajar en esta unidad son los siguientes:
+
 | Protocolo | Capa en el protocolo TCP/IP   |
 | ----------| ----------                    |
 | TCP       | Capa de transporte            |
