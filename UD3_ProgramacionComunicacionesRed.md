@@ -139,6 +139,7 @@ Constructores de ServerSocket:
 La fila de espera es para poder manejar peticiones de conexión en forma simultánea o cuando lleguen peticiones antes de que se termine de procesar la que llego antes.
 
 Métodos relevantes de la clase ServerSocket:
+
 | Método        | Descripción                   |
 | ----------    | ----------                    |
 | accept        | Recibe las peticiones de establecimiento de conexión, proporcionando un socket. |
@@ -153,6 +154,7 @@ Un socket es un estremo en la comunicación entre dos máquinas.
 ![](img/socket.jpg)
 
 Métodos más imporotantes de la clase socket:
+
 | Método        | Descripción                   |
 | ----------    | ----------                    |
 | bind          | Asocia el socket a una dirección local. |
@@ -170,6 +172,7 @@ Incluye constructores que permiten crear un array de bytes que determinen el con
 - DatagramPacket(byte[], int,InetAddress, int): Especifica la cadena de bytes donde se aloja el mensaje, la longitud de la cadena, la dirección IP y el puerto al que se enviael mensaje.
 
 Métodos más importantes: 
+
 | Método        | Descripción                   |
 | ----------    | ----------                    |
 | getAddress()  | Devuelve la IP del host que envió el datagrama. |
@@ -179,6 +182,7 @@ Métodos más importantes:
 
 ### DatagramSocket
 Representa un socket para el envío y recepción de datagramas. Los métodos más importantes de esta clase son:
+
 | Método        | Descripción                   |
 | ----------    | ----------                    |
 | bind          | Asocia el socket a una dirección local. |
