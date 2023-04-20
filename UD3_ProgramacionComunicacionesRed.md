@@ -149,7 +149,7 @@ Métodos relevantes de la clase ServerSocket:
 | isConnected   | Determina si el socket está conectado. |
 
 ### Socket
-Un socket es un estremo en la comunicación entre dos máquinas.
+Un socket es un extremo en la comunicación entre dos máquinas.
 
 ![](img/socket.jpg)
 
