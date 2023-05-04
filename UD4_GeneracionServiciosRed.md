@@ -222,6 +222,7 @@ Principales métodos de HttpClient:
 | send                  | Envía una petición HTTP y devuelve una instancia de HttpResponse. Recibe como parámetro, además de la petición, un ubjeto de la clase HttpResponse.BodyHandles, encargado de gestionar el contenido de la respuesta de la petición. |
 
 Principales métodos de HttpClient.Builder:
+
 | Método                | Descripción                   |
 | ----------            | ----------                    |
 | build                 | Proporciona el objeto HttpClient con la configuración proporcionada. |
