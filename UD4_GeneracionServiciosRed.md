@@ -215,6 +215,7 @@ Contiene también las ocnstantes que representan los códigos de estado del prot
 Esta clase permite realizar peticiones HTTP y obtener sus respuestas. Las instancias deben crearse a través de la instancia a un objeto o de un builder.
 
 Principales métodos de HttpClient:
+
 | Método                | Descripción                   |
 | ----------            | ----------                    |
 | newBuilder            | Crea un builder (objeto de la interfaz _HttpClient.Builder_). |
