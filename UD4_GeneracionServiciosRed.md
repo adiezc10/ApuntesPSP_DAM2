@@ -229,7 +229,6 @@ Principales métodos de HttpClient.Builder:
 | followsRedirect       | Proporciona mecanismos para determinar cómo debe comportarse la petición frente a las redirecciones del servidor. |
 | version               | Permite especificar la versión del protocolo HTTP. |
 
-
 ## Transferencia de archivos mediante FTP
 
 | Clase | Descripción |
@@ -262,7 +261,6 @@ FTPClient proporciona una interfaz de programación de aplicaciones (API) que pe
 > Hoja de ejercicios 3 -> Peticiones HTTP basadas en _java.net.http_
 
 ### FTPClient
-
 
 > Hoja de ejercicio 4 -> Transferencia de ficheros mediente HTTP
 
